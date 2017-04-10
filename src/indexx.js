@@ -1,7 +1,14 @@
-  var numeros = [3,55,2,88]
+  var page = require('page');
 
-  var numerosMas1 = numeros.map(function(numero){
-      return numero + 1
-  });
+  var main = document.getElementById('main-container')
 
-  console.log(numerosMas1)
+  page('/', function(ctx, next){
+    main.innerHTML = 'Home <a href="/signup">Signup</a>';
+
+  })
+
+  page('/signup', function(ctx, next){
+    main.innerHTML = 'Signup <a href="/">Home</a>';
+  })
+
+  page();
