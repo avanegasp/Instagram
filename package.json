@@ -19,4 +19,8 @@
   },
   "author": "angie vanegas",
   "license": "ISC"
+},
+  "scripts":{
+    "build":"gulp",
+    "start": ""
 }
