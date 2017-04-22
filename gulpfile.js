@@ -4,6 +4,7 @@
   var babel = require('babelify');
   var browserify = require('browserify');
   var source = require('vinyl-source-stream');
+  var watchify = require('watchify');
 
 
 
@@ -21,13 +22,34 @@
       .pipe(gulp.dest('public'));
   })
 
-  gulp.task('scripts', function (){
-      browserify('./src/indexx.js')
-      .transform(babel)
-      .bundle()
-      .pipe(source('indexx.js'))
-      .pipe(rename('app.js'))
-      .pipe(gulp.dest('public'));
-  })
+  function compile(watch){
+    var bundle = watchify(browserify('./src/indexx.js', {debug: true}));
 
-  gulp.task('default', ['styles', 'assets', 'scripts']);
+    function rebundle(){
+      // var bundle = 'hola';
+      bundle
+        .transform(babel)
+        .bundle()
+        .pipe(source('indexx.js'))
+        .pipe(rename('app.js'))
+        .pipe(gulp.dest('public'));
+    }
+
+    if(watch){
+        bundle.on('update', function(){
+          console.log('--> Bundling...');
+          rebundle();
+        });
+    }
+    rebundle();
+  }
+
+  gulp.task('build', function() {
+    return compile();
+  });
+
+  gulp.task('watch', function() {
+    return compile(true);
+  });
+
+  gulp.task('default', ['styles', 'assets', 'build']);
