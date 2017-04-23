@@ -3,7 +3,7 @@
   var template = require('./template');
 
 
-  page('/signup', function(ctx, next){
+  page('/signin', function(ctx, next){
     // main.innerHTML = 'Signup <a href="/">Home</a>';
     var main = document.getElementById('main-container');
     empty(main).appendChild(template);

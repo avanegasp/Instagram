@@ -30,6 +30,7 @@
       bundle
         .transform(babel)
         .bundle()
+        .on('error', function(err){ console.log(err); this.emit('end') })
         .pipe(source('indexx.js'))
         .pipe(rename('app.js'))
         .pipe(gulp.dest('public'));
