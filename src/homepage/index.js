@@ -13,5 +13,27 @@
     title('InstaFlash');
     // main.innerHTML = 'Signup <a href="/">Home</a>';
     var main = document.getElementById('main-container');
-    empty(main).appendChild(template);
+
+    var pictures = [
+      {
+        user:{
+          username:'oliveins',
+          avatar: 'https://avatars3.githubusercontent.com/u/7864798?v=3&u=74b94ad7c746488e9cf905d9b3ca81c544f86fdd&s=400'
+        },
+        url: 'office.jpg',
+        likes:10,
+        liked: true
+      },
+      {
+        user:{
+          username:'oliveins',
+          avatar: 'https://avatars3.githubusercontent.com/u/7864798?v=3&u=74b94ad7c746488e9cf905d9b3ca81c544f86fdd&s=400'
+        },
+        url: 'office.jpg',
+        likes:2,
+        liked: true
+      },
+    ];
+
+    empty(main).appendChild(template(pictures));
   })
