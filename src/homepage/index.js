@@ -21,7 +21,7 @@
           avatar: 'https://avatars3.githubusercontent.com/u/7864798?v=3&u=74b94ad7c746488e9cf905d9b3ca81c544f86fdd&s=400'
         },
         url: 'office.jpg',
-        likes:10,
+        likes:0,
         liked: true,
         createdAt: new Date()
       },
@@ -31,7 +31,7 @@
           avatar: 'https://avatars3.githubusercontent.com/u/7864798?v=3&u=74b94ad7c746488e9cf905d9b3ca81c544f86fdd&s=400'
         },
         url: 'office.jpg',
-        likes:2,
+        likes:1,
         liked: true,
         createdAt: new Date().setDate(new Date().getDate() - 10)
       },
